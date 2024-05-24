@@ -50,8 +50,7 @@ export class ContainerComponent {
     'rohan',
     'narendra',
     'prasad',
-    'gaurav',
-    'mahaveer'
+    'gaurav'
   ];
 
   textFromChild(val: string) {
