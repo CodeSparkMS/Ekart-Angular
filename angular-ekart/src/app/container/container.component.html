@@ -1,0 +1,65 @@
+<div class="ekart--product--container">
+  <!-- **************************************************************************************************** -->
+  <!-- ONE WAY DATA BINDING -->
+  <!-- **************************************************************************************************** -->
+
+  <!-- <img
+    [src]="product.productImage"
+    alt="Iphone16"
+    width="150px"
+    height="180px"
+  />
+
+  String Interpolation Example
+  <p>Name: {{ product.name }}</p>
+  <p>Price: {{ "$" + product.price }}</p>
+  <p>Color: {{ product.color }}</p>
+  <p>Discounted Price: {{ getDiscountedPrice() }}</p>
+  <p>
+    {{
+      product.inStock > 0
+        ? "Only " + product.inStock + " left"
+        : "No stock available"
+    }}
+  </p>
+
+  <button class="btn btn-danger" (click)="removeItem()">-</button>
+  {{ cartItems }}
+  <button class="btn btn-success" (click)="addItem()">+</button>
+
+  Property Binding Example
+  <button
+    class="btn btn-success"
+    [disabled]="product.inStock > 0"
+    (click)="onButtonClick()"
+  >
+    Buy Now
+  </button>
+
+  Event Binding
+  <input [value]="name" (input)="inputText($event)" />
+  <p>Input text is {{ name }}</p> -->
+
+  <!-- **************************************************************************************************** -->
+  <!-- TWO WAY DATA BINDING -->
+  <!-- **************************************************************************************************** -->
+
+  <app-search (searchTextFromChild)="textFromChild($event)"></app-search>
+
+  <!-- <div style="background-color: aqua;"  *ngFor="let item of listOfStrings" class=""> -->
+  <!-- <p>Value of item is: {{ item }}</p> -->
+  <!-- </div> -->
+
+  <!-- OR -->
+
+  <!-- <p style="background-color: aqua" *ngFor="let item of listOfStrings">
+    Value of item is: {{ item }}
+  </p> -->
+
+  <!-- <product-list></product-list> -->
+  <product-list [searchText]="searchText" #productListComponent></product-list>
+
+  <product-details *ngIf="productListComponent.selectedProduct"></product-details>
+
+  
+</div>
