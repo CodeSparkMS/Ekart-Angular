@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input } from '@angular/core';
+import { Component, EventEmitter, Input, ViewChild } from '@angular/core';
 
 import { Product } from 'src/app/Models/Product';
 
@@ -183,5 +183,6 @@ export class ProductListComponent {
   searchText: string = '';
 
   selectedProduct: Product;
+
   
 }

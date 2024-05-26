@@ -56,10 +56,17 @@
     Value of item is: {{ item }}
   </p> -->
 
+  <!-- Template Reference Variable -->
   <!-- <product-list></product-list> -->
+  <!-- <product-list [searchText]="searchText" #productListComponent></product-list>
+
+  <product-details *ngIf="productListComponent.selectedProduct"></product-details> -->
+
+  <!-- // ViewChild() DECORATOR -->
   <product-list [searchText]="searchText" #productListComponent></product-list>
 
-  <product-details *ngIf="productListComponent.selectedProduct"></product-details>
-
-  
+  <product-details
+    *ngIf="productListComponent.selectedProduct"
+    [productListCompProduct]="productListComponentProduct"
+  ></product-details>
 </div>

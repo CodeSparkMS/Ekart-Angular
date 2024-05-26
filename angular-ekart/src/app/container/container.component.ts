@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Input } from '@angular/core';
+import { Component, EventEmitter, Input, ViewChild } from '@angular/core';
+import { ProductListComponent } from './product-list/product-list.component';
+import { Product } from '../Models/Product';
 
 @Component({
   selector: 'container',
@@ -50,11 +52,16 @@ export class ContainerComponent {
     'rohan',
     'narendra',
     'prasad',
-    'gaurav'
+    'gaurav',
   ];
 
   textFromChild(val: string) {
     console.log('Value in parent component...', val);
     this.searchText = val;
   }
+
+  // @ViewChild(ProductListComponent) productListComponentProduct:ProductListComponent
+  // OR
+  @ViewChild('productListComponent') productListComponentProduct: ProductListComponent = undefined;
+
 }
