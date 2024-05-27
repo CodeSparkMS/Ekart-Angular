@@ -13,6 +13,8 @@ import { ProductListComponent } from './container/product-list/product-list.comp
 import { ProductComponent } from './container/product-list/product/product.component';
 import { FilterComponent } from './container/product-list/filter/filter.component';
 import { ProductDetailsComponent } from './container/product-details/product-details.component';
+import { FeaturedProductsComponent } from './container/featured-products/featured-products.component';
+import { TestComponent } from './test/test.component';
 @NgModule({
   declarations: [
     AppComponent, // pipes, components, directives belongs to this angular modules
@@ -26,6 +28,8 @@ import { ProductDetailsComponent } from './container/product-details/product-det
     ProductComponent,
     FilterComponent,
     ProductDetailsComponent,
+    FeaturedProductsComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule, // External modules require for angular application

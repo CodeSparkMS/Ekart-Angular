@@ -1,0 +1,7 @@
+.card {
+  width: 200px;
+  align-items: center;
+  background-color: #282828;
+  justify-content: center;
+  color: #fff;
+}
