@@ -1,5 +1,7 @@
 <h2>Angular ng-template</h2>
 
+<button (click)="toggle()">Toggle</button>
+
 <ng-template #demoTemplate>
   <h3>Welcome to ng-template</h3>
   <p>ng-template demo</p>
@@ -10,4 +12,3 @@
 <div *ngIf="boolVar; else demoTemplate">
   <p>If statement calls</p>
 </div>
-

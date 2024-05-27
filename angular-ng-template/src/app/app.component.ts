@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angular-ng-template';
   boolVar: boolean = false;
+
+  toggle() {
+    this.boolVar = !this.boolVar;
+  }
 }

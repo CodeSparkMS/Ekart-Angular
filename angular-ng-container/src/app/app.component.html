@@ -1,0 +1,32 @@
+<ng-container *ngIf="boolVar; else boolRef">
+  <p>Toggle is ON</p>
+</ng-container>
+
+<ng-template #boolRef>
+  <p>Toggle is OFF</p>
+</ng-template>
+
+<button (click)="toggleFun()">Toggle</button>
+
+<!-- WITHOUT ng-container -->
+<!-- Below div adds extra unnecessary element to DOM -->
+<div class="" *ngFor="let item of items">
+  <div class="" *ngIf="item.isActive">
+    <p>ID: {{ item.id }}</p>
+    <p>Name: {{ item.name }}</p>
+    <p>Price: {{ item.price }}</p>
+    <hr />
+  </div>
+</div>
+
+<!-- WITH ng-container -->
+<!-- ng-container does not add extra unnecessary element to DOM -->
+<hr />
+<ng-container *ngFor="let item of items">
+  <div class="" *ngIf="!item.isActive">
+    <p>ID: {{ item.id }}</p>
+    <p>Name: {{ item.name }}</p>
+    <p>Price: {{ item.price }}</p>
+    <hr />
+  </div>
+</ng-container>
