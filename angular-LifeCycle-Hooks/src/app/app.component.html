@@ -3,5 +3,7 @@
 <div class="container">
   <input type="text" #inputVal />
   <button (click)="inputValueFun(inputVal)">Show/ hide</button>
-  <app-demo [parentMessage] ="text"></app-demo>
+  <app-demo [parentMessage]="text">
+    <p #parent>Text typed by user is {{ text }}</p>
+  </app-demo>
 </div>

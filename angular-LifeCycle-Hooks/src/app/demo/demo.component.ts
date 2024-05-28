@@ -1,10 +1,14 @@
 import {
+  AfterContentChecked,
+  AfterContentInit,
   Component,
+  ContentChild,
   DoCheck,
   ElementRef,
   Input,
   OnChanges,
   OnInit,
+  SimpleChanges,
   ViewChild,
 } from '@angular/core';
 
@@ -13,7 +17,9 @@ import {
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.css'],
 })
-export class DemoComponent implements OnChanges, OnInit, DoCheck {
+export class DemoComponent
+  implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked
+{
   testVar1: string = 'Hello Mohanish';
 
   // @Input() testVar2: string = 'Hi';
@@ -28,9 +34,12 @@ export class DemoComponent implements OnChanges, OnInit, DoCheck {
 
   @ViewChild('temp') msgRef: ElementRef;
 
+  @ContentChild('parent') parentEle: ElementRef;
+
   // ngOnChanges() Life Cycle Hook
-  ngOnChanges() {
-    console.log('ngOnChange called....');
+  // ngOnChanges() {
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('ngOnChange called....', changes);    // changes give current value and previous value
     console.log('parentMessage...', this.parentMessage);
   }
 
@@ -43,5 +52,23 @@ export class DemoComponent implements OnChanges, OnInit, DoCheck {
   //ngDoCheck Life Cycle Hook
   ngDoCheck() {
     console.log('ngDoCheck called....');
+    console.log('parentEle in ngDoCheck...', this.parentEle);
+  }
+
+  //ngAfterContentInit() Life Cycle Hook
+  ngAfterContentInit() {
+    console.log('ngAfterContentInit hook called...');
+    console.log(
+      'parentEle in ngAfterContentInit...',
+      this.parentEle.nativeElement
+    );
+  }
+
+  ngAfterContentChecked(){
+    console.log("ngAfterContentChecked hook called....")
+    console.log(
+      'parentEle in ngAfterContentChecked...',
+      this.parentEle.nativeElement
+    );
   }
 }
