@@ -1,4 +1,4 @@
-import { Component, ContentChild } from '@angular/core';
+import { Component, ContentChild, Input } from '@angular/core';
 
 @Component({
   selector: 'app-test',
@@ -6,6 +6,5 @@ import { Component, ContentChild } from '@angular/core';
   styleUrls: ['./test.component.css'],
 })
 export class TestComponent {
-  name: string = 'john Doe';
-
+  @Input() name: string = '';
 }

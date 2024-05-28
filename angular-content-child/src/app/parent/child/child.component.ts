@@ -1,4 +1,10 @@
-import { Component, ContentChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  ContentChild,
+  ContentChildren,
+  ElementRef,
+  QueryList,
+} from '@angular/core';
 import { TestComponent } from 'src/app/test/test.component';
 
 @Component({
@@ -11,8 +17,23 @@ export class ChildComponent {
 
   @ContentChild(TestComponent) testEleRef: TestComponent;
 
+  @ContentChildren('para') parentParaRef: QueryList<ElementRef>; // DOM element
+
+  @ContentChildren(TestComponent) parentAllRef: QueryList<TestComponent>; // Component
+
   testFunc() {
-    console.log(this.paragraphEl.nativeElement);
-    console.log(this.testEleRef.name);
+    //  @ContentChild()
+    // console.log(this.paragraphEl.nativeElement);   // DOM element
+    // console.log(this.testEleRef.name);       // Component
+
+    //@ContentChildren()      // DOM Element
+    // this.parentParaRef.forEach((e) => {
+    //   console.log('parent para ref...', e.nativeElement);
+    // });
+
+    // // Component
+    this.parentAllRef.forEach((e) => {
+      console.log(e.name);
+    });
   }
 }
