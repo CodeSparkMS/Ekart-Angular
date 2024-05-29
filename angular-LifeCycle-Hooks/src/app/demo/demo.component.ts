@@ -1,6 +1,8 @@
 import {
   AfterContentChecked,
   AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
   Component,
   ContentChild,
   DoCheck,
@@ -18,7 +20,14 @@ import {
   styleUrls: ['./demo.component.css'],
 })
 export class DemoComponent
-  implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked
+  implements
+    OnChanges,
+    OnInit,
+    DoCheck,
+    AfterContentInit,
+    AfterContentChecked,
+    AfterViewInit,
+    AfterViewChecked
 {
   testVar1: string = 'Hello Mohanish';
 
@@ -39,36 +48,57 @@ export class DemoComponent
   // ngOnChanges() Life Cycle Hook
   // ngOnChanges() {
   ngOnChanges(changes: SimpleChanges) {
-    console.log('ngOnChange called....', changes);    // changes give current value and previous value
-    console.log('parentMessage...', this.parentMessage);
+    // console.log('ngOnChange called....', changes); // changes give current value and previous value
+    // console.log('parentMessage...', this.parentMessage);
   }
 
   //ngOnInit() Life Cycle Hook
   ngOnInit() {
-    console.log('ngOnInit called...');
+    // console.log('ngOnInit called...');
     // console.log('ngOnInit...msgRef...msgRef...msgRef',this.msgRef.nativeElement); // It gives error as @ViewChild() decorated property is not available
   }
 
   //ngDoCheck Life Cycle Hook
   ngDoCheck() {
-    console.log('ngDoCheck called....');
-    console.log('parentEle in ngDoCheck...', this.parentEle);
+    // console.log('ngDoCheck called....');
+    // console.log('parentEle in ngDoCheck...', this.parentEle);
   }
 
   //ngAfterContentInit() Life Cycle Hook
   ngAfterContentInit() {
-    console.log('ngAfterContentInit hook called...');
+    // console.log('ngAfterContentInit hook called...');
+    // console.log(
+    //   'parentEle in ngAfterContentInit...',
+    //   this.parentEle.nativeElement
+    // );
+  }
+
+  ngAfterContentChecked() {
+    // console.log('ngAfterContentChecked hook called....');
+    // console.log(
+    //   'parentEle in ngAfterContentChecked...',
+    //   this.parentEle.nativeElement
+    // );
+    //test for ngAfterViewInit
+    // console.log(
+    //   'ngAfterContentChecked...msgRef...msgRef...msgRef...',
+    //   this.msgRef
+    // );
+  }
+
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit hook called....');
     console.log(
-      'parentEle in ngAfterContentInit...',
-      this.parentEle.nativeElement
+      'ngAfterViewInit...msgRef...msgRef...msgRef...',
+      this.msgRef.nativeElement.innerHtml
     );
   }
 
-  ngAfterContentChecked(){
-    console.log("ngAfterContentChecked hook called....")
+  ngAfterViewChecked() {
+    console.log('ngAfterViewChecked hook called...');
     console.log(
-      'parentEle in ngAfterContentChecked...',
-      this.parentEle.nativeElement
+      'ngAfterViewInit...msgRef...msgRef...msgRef...',
+      this.msgRef.nativeElement.innerHtml
     );
   }
 }

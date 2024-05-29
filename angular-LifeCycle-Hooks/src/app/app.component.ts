@@ -21,4 +21,14 @@ export class AppComponent {
     this.text = inputEl.value;
     // console.log('parValRef...', this.parValRef.nativeElement.value);
   }
+
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit hook called in PARENT component class....');
+  }
+
+  ngAfterViewChecked(){
+    
+  }
+
+
 }
