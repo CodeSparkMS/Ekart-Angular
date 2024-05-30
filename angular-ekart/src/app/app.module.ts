@@ -16,6 +16,7 @@ import { ProductDetailsComponent } from './container/product-details/product-det
 import { FeaturedProductsComponent } from './container/featured-products/featured-products.component';
 import { TestComponent } from './test/test.component';
 import { SetBackground } from './container/CustomDirective/SetBackground.directive';
+import { HighlightDirective } from './container/CustomDirective/highlight.directive';
 @NgModule({
   declarations: [
     AppComponent, // pipes, components, directives belongs to this angular modules
@@ -32,6 +33,7 @@ import { SetBackground } from './container/CustomDirective/SetBackground.directi
     FeaturedProductsComponent,
     TestComponent,
     SetBackground,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule, // External modules require for angular application
