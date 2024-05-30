@@ -3,7 +3,9 @@
 <div class="container">
   <input type="text" #inputVal />
   <button (click)="inputValueFun(inputVal)">Show/ hide</button>
-  <app-demo [parentMessage]="text">
+
+  <app-demo [parentMessage]="text" *ngIf="!toDestroy">
     <p #parent>Text typed by user is {{ text }}</p>
   </app-demo>
+  <button (click)="destroyComponent()">set/unset</button>
 </div>

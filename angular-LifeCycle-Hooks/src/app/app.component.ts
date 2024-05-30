@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -23,12 +23,16 @@ export class AppComponent {
   }
 
   ngAfterViewInit() {
-    console.log('ngAfterViewInit hook called in PARENT component class....');
+    // console.log('ngAfterViewInit hook called in PARENT component class....');
   }
 
-  ngAfterViewChecked(){
-    
+  ngAfterViewChecked() {
+    // console.log('ngAfterViewChecked hook called in PARENT component class....');
   }
 
+  toDestroy: boolean = false;
 
+  destroyComponent() {
+    this.toDestroy = !this.toDestroy;
+  }
 }

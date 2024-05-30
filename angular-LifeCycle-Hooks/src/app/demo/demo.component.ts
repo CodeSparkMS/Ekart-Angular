@@ -9,6 +9,7 @@ import {
   ElementRef,
   Input,
   OnChanges,
+  OnDestroy,
   OnInit,
   SimpleChanges,
   ViewChild,
@@ -27,7 +28,8 @@ export class DemoComponent
     AfterContentInit,
     AfterContentChecked,
     AfterViewInit,
-    AfterViewChecked
+    AfterViewChecked,
+    OnDestroy
 {
   testVar1: string = 'Hello Mohanish';
 
@@ -35,7 +37,7 @@ export class DemoComponent
 
   constructor() {
     console.log('Demo component is called');
-    console.log('this.testVar1...', this.testVar1);
+    // console.log('this.testVar1...', this.testVar1);
     // console.log('this.testVar2...', this.testVar2);
   }
 
@@ -87,18 +89,23 @@ export class DemoComponent
   }
 
   ngAfterViewInit() {
-    console.log('ngAfterViewInit hook called....');
-    console.log(
-      'ngAfterViewInit...msgRef...msgRef...msgRef...',
-      this.msgRef.nativeElement.innerHtml
-    );
+    // console.log('ngAfterViewInit hook called....');
+    // console.log(
+    //   'ngAfterViewInit...msgRef...msgRef...msgRef...',
+    //   this.msgRef.nativeElement
+    // );
   }
 
   ngAfterViewChecked() {
-    console.log('ngAfterViewChecked hook called...');
-    console.log(
-      'ngAfterViewInit...msgRef...msgRef...msgRef...',
-      this.msgRef.nativeElement.innerHtml
-    );
+    // console.log('ngAfterViewChecked hook called...');
+    // console.log(
+    //   'ngAfterViewChecked...msgRef...msgRef...msgRef...',
+    //   this.msgRef.nativeElement
+    // );
   }
+
+  ngOnDestroy() {
+    console.log('ngOnDestroy hook called...');
+  }
+ 
 }
